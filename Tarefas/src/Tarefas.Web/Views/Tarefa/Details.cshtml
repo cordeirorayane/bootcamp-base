@@ -13,5 +13,11 @@
     </div>
         
     <input type="submit" class="btn btn-primary" />
+    <a asp-asp-controller="Tarefa" asp-action="Index" asp-route-itemid="@Model.Id">Voltar</a>
+
+    <input asp-for="Id" hidden />
+    <input asp-for="Concluida" hidden />
+
+   
         
 </form>
