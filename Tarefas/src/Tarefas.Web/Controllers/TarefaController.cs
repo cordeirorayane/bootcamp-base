@@ -8,9 +8,9 @@ namespace Tarefas.Web.Controllers
     public class TarefaController : Controller
     {
         public List<TarefaViewModel> listaDeTarefas { get; set; }
-        private readonly TarefaDAO _tarefaDAO;
+        private readonly ITarefaDAO _tarefaDAO;
 
-        public TarefaController(TarefaDAO tarefaDAO)
+        public TarefaController(ITarefaDAO tarefaDAO)
         {
             _tarefaDAO = tarefaDAO; 
         }
