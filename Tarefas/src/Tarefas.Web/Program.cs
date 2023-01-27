@@ -1,12 +1,23 @@
 using Tarefas.DAO;
+using Tarefas.DTO;
+
+using AutoMapper;
+using Tarefas.Web.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var app = builder.Build();
+
+var config  = new AutoMapper.MapperConfiguration(c =>{
+    c.CreateMap<TarefaViewModel, TarefaDTO>().ReverseMap();
+});
+
+IMapper mappper = config.CreateMapper();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ITarefaDAO, TarefaDAO>();
-
-var app = builder.Build();
+builder.Services.AddSingleton(mapper);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

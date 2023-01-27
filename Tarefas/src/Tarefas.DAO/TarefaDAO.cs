@@ -8,11 +8,8 @@ using System.Collections.Generic;
 
 namespace Tarefas.DAO
 {
-    public class TarefaDAO : ITarefaDAO
+    public class TarefaDAO : BaseDAO, ITarefaDAO
     {
-        private string DataSourceFile => Environment.CurrentDirectory + "AppTarefasDB.sqlite";
-        public SQLiteConnection Connection => new SQLiteConnection("DataSource="+ DataSourceFile);
-        
         public TarefaDAO()
         {
             if(!File.Exists(DataSourceFile))
